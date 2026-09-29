@@ -1,17 +1,28 @@
 Source: vyatta-vrrp
-Section: contrib/net
+Section: net
 Priority: optional
 X-Python3-Version: >= 3.6
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends: debhelper (>= 9), debhelper (>= 9.20160709) | dh-systemd, dh-yang,
-               python3, python3-all, python3-setuptools, dh-python, dh-vci, git,
-               python3-pytest, python3-pytest-pep8, python3-pytest-cov, 
-               python3-pytest-lazy-fixture, python3-pydbus
-Standards-Version: 4.3.0
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
+ dh-yang,
+ python3,
+ python3-all,
+ python3-setuptools,
+ dh-python,
+ dh-vci,
+ git,
+ python3-pytest,
+ python3-pytest-cov,
+ python3-pytest-lazy-fixture,
+ python3-pydbus
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/vyatta-vrrp.git
+Vcs-Browser: https://github.com/nudanos/vyatta-vrrp
 
 Package: vyatta-vrrp
 Architecture: all
-Depends:
+Depends: 
  bmon (>= 3.5),
  dbus,
  iftop,
@@ -39,7 +50,7 @@ Description: vyatta-op-show-interfaces-vrrp-v1 module
 
 Package: vyatta-op-mode-vrrp-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-op-monitor-interfaces-vrrp-v1-yang,
  vyatta-op-monitor-vrrp-v1-yang,
  vyatta-op-reset-vrrp-v1-yang,
@@ -92,137 +103,136 @@ Description: vyatta-op-monitor-interface-vrrp-v1 module
 
 Package: vyatta-vrrp-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp (>= ${source:Version}),
  vyatta-vrrp-vci (>= ${source:Version}),
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-v1 yang module
  The YANG module for vyatta-vrrp-v1.
 
 Package: vyatta-vrrp-interfaces-switch-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-v1-yang (>= ${source:Version}),
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-interfaces-switch-v1 yang module
  The YANG module for vyatta-vrrp-interfaces-switch-v1.
 
 Package: vyatta-vrrp-path-monitor-track-v1-yang
 Architecture: all
-Depends:
+Depends: 
  monitord-feature-dbus,
  vyatta-vrrp-v1-yang (>= ${source:Version}),
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-path-monitor-track-v1 yang module
  The YANG module that defines the grouping to track path monitor
  combinations.
 
 Package: vyatta-vrrp-path-monitor-track-interfaces-dataplane-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-path-monitor-track-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-path-monitor-track-interfaces-dataplane-v1 yang module
  The YANG module that augments dataplane interfaces with path monitor tracking.
 
 Package: vyatta-vrrp-path-monitor-track-interfaces-bonding-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-path-monitor-track-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-path-monitor-track-interfaces-bonding-v1 yang module
  The YANG module that augments bonding interfaces with path monitor tracking.
 
 Package: vyatta-vrrp-path-monitor-track-interfaces-switch-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-interfaces-switch-v1-yang,
  vyatta-vrrp-path-monitor-track-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-path-monitor-track-interfaces-switch-v1 yang module
  The YANG module that augments switch vif interfaces with path monitor tracking.
 
 Package: vyatta-vrrp-route-to-track-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-v1-yang (>= ${source:Version}),
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-route-to-track-v1 yang module
  The YANG module that defines the grouping to track routes.
 
 Package: vyatta-vrrp-route-to-track-interfaces-dataplane-v1-yang
 Architecture: all
 Depends: vyatta-vrrp-route-to-track-v1-yang, ${misc:Depends}, ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-route-to-track-interfaces-dataplane-v1 yang module
  The YANG module that augments dataplane interfaces with route-to tracking.
 
 Package: vyatta-vrrp-route-to-track-interfaces-bonding-v1-yang
 Architecture: all
 Depends: vyatta-vrrp-route-to-track-v1-yang, ${misc:Depends}, ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-route-to-track-interfaces-bonding-v1 yang module
  The YANG module that augments bonding interfaces with route-to tracking.
 
 Package: vyatta-vrrp-route-to-track-interfaces-switch-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-interfaces-switch-v1-yang,
  vyatta-vrrp-route-to-track-v1-yang,
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-route-to-track-interfaces-switch-v1 yang module
  The YANG module that augments switch vif interfaces with route-to tracking.
 
 Package: vyatta-vrrp-state-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-vrrp-v1-yang (>= ${source:Version}),
  ${misc:Depends},
  ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-state-v1 yang module
  The YANG module that defines the state nodes for a VRRP instance.
 
 Package: vyatta-vrrp-state-interfaces-dataplane-v1-yang
 Architecture: all
 Depends: vyatta-vrrp-state-v1-yang, ${misc:Depends}, ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-state-interfaces-dataplane-v1 yang module
  The YANG module that augments dataplane interfaces with state nodes.
 
 Package: vyatta-vrrp-state-interfaces-bonding-v1-yang
 Architecture: all
 Depends: vyatta-vrrp-state-v1-yang, ${misc:Depends}, ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-state-interfaces-bonding-v1 yang module
  The YANG module that augments bonding interfaces with state nodes.
 
 Package: vyatta-vrrp-state-interfaces-switch-v1-yang
 Architecture: all
 Depends: vyatta-vrrp-state-v1-yang, ${misc:Depends}, ${yang:Depends}
-Section: contrib/admin
+Section: admin
 Description: vyatta-vrrp-state-interfaces-switch-v1 yang module
  The YANG module that augments switch vif interfaces with state nodes.
 
 Package: vyatta-vrrp-vci
 Architecture: any
-Priority: optional
 Depends: python3, python3-vci, ${python3:Depends}, ${misc:Depends}, ${shlibs:depends}
 Built-Using: ${misc:Built-Using}
 Description: Vci Service for vyatta-vrrp config

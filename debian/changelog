@@ -1,3 +1,9 @@
+vyatta-vrrp (3.9) trixie; urgency=medium
+
+  * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Mon, 28 Sep 2026 23:09:37 -0700
+
 vyatta-vrrp (3.8) unstable; urgency=medium
 
   * Bugfix/Update show vrrp sync for new data format
