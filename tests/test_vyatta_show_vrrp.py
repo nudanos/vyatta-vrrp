@@ -5,6 +5,7 @@
 import pytest
 
 
+from pytest_lazy_fixtures import lf
 class TestVyattaShowVrrp:
 
     # pylint: disable=protected-access
@@ -16,34 +17,34 @@ class TestVyattaShowVrrp:
         "fakes,expected,state",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_summary"),
-                pytest.lazy_fixture("simple_state")
+                lf("calendar_fakes"),
+                lf("generic_group_show_summary"),
+                lf("simple_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_show_summary"),
-                pytest.lazy_fixture("simple_rfc_state")
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_show_summary"),
+                lf("simple_rfc_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_sync_show_summary"),
-                pytest.lazy_fixture("simple_rfc_sync_state")
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_sync_show_summary"),
+                lf("simple_rfc_sync_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_ipao_show_summary"),
-                pytest.lazy_fixture("simple_rfc_ipao_state")
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_ipao_show_summary"),
+                lf("simple_rfc_ipao_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("switch_show_vrrp_output"),
-                pytest.lazy_fixture("switch_show_dictionary")
+                lf("calendar_fakes"),
+                lf("switch_show_vrrp_output"),
+                lf("switch_show_dictionary")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_summary"),
-                pytest.lazy_fixture("simple_vif_state")
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_summary"),
+                lf("simple_vif_state")
             ),
         ],
         ids=["No rfc", "rfc", "rfc sync", "rfc IPAO", "Switch", "vif"]
@@ -57,107 +58,107 @@ class TestVyattaShowVrrp:
         "fakes,expected,data",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_detail"),
-                pytest.lazy_fixture("detailed_simple_state")
+                lf("calendar_fakes"),
+                lf("generic_group_show_detail"),
+                lf("detailed_simple_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_show_detail"),
-                pytest.lazy_fixture("detailed_simple_rfc_state")
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_show_detail"),
+                lf("detailed_simple_rfc_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_sync_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_sync_show_detail"),
+                lf(
                     "detailed_simple_rfc_sync_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_ipao_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_ipao_show_detail"),
+                lf(
                     "detailed_simple_rfc_ipao_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "detailed_backup_simple_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_intf_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "detailed_backup_track_intf_simple_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_intf_no_weight" +
                     "_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "detailed_backup_track_intf_no_weight_simple_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_pathmon" +
                     "_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "detailed_backup_track_pathmon_simple_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_route_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "detailed_backup_track_route_simple_state"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_v3_group_show_detail"),
-                pytest.lazy_fixture("detailed_v3_simple_state")
+                lf("calendar_fakes"),
+                lf("generic_v3_group_show_detail"),
+                lf("detailed_v3_simple_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_start_delay_group_show_detail"),
-                pytest.lazy_fixture("detailed_start_delay_simple_state")
+                lf("calendar_fakes"),
+                lf("generic_start_delay_group_show_detail"),
+                lf("detailed_start_delay_simple_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_preempt_delay_group_show_detail"),
-                pytest.lazy_fixture("detailed_preempt_delay_simple_state")
+                lf("calendar_fakes"),
+                lf("generic_preempt_delay_group_show_detail"),
+                lf("detailed_preempt_delay_simple_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multi_group_sync_group_show_detailed"),
-                pytest.lazy_fixture("detailed_simple_multi_sync_state")
+                lf("calendar_fakes"),
+                lf("multi_group_sync_group_show_detailed"),
+                lf("detailed_simple_multi_sync_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_detail"),
-                pytest.lazy_fixture("detailed_vif_simple_state")
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_detail"),
+                lf("detailed_vif_simple_state")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_v3_rfc_group_fast_advert_show_detail"
                 ),
-                pytest.lazy_fixture("detailed_v3_rfc_fast_advert_simple_state")
+                lf("detailed_v3_rfc_fast_advert_simple_state")
             ),
         ],
         ids=[
@@ -178,47 +179,47 @@ class TestVyattaShowVrrp:
         "fakes,expected,data,grp_filter",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_sync_group_show_sync"),
-                pytest.lazy_fixture("simple_sync_group_state"),
+                lf("calendar_fakes"),
+                lf("generic_sync_group_show_sync"),
+                lf("simple_sync_group_state"),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("no_sync_group_show_sync"),
-                pytest.lazy_fixture("detailed_v3_simple_state"),
+                lf("calendar_fakes"),
+                lf("no_sync_group_show_sync"),
+                lf("detailed_v3_simple_state"),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_sync_group_show_sync"),
-                pytest.lazy_fixture("detailed_simple_multi_sync_state"),
+                lf("calendar_fakes"),
+                lf("generic_sync_group_show_sync"),
+                lf("detailed_simple_multi_sync_state"),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multiple_sync_group_show_sync"),
-                pytest.lazy_fixture("multiple_simple_sync_group_state"),
+                lf("calendar_fakes"),
+                lf("multiple_sync_group_show_sync"),
+                lf("multiple_simple_sync_group_state"),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("sync_group_show_sync_group_filter"),
-                pytest.lazy_fixture("multiple_simple_sync_group_state"),
+                lf("calendar_fakes"),
+                lf("sync_group_show_sync_group_filter"),
+                lf("multiple_simple_sync_group_state"),
                 "TESTV2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "sync_group_show_sync_group_filter_no_group"
                 ),
-                pytest.lazy_fixture("multiple_simple_sync_group_state"),
+                lf("multiple_simple_sync_group_state"),
                 "TEST1"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_sync_group_vif_show_sync"),
-                pytest.lazy_fixture("simple_vif_sync_group_state"),
+                lf("calendar_fakes"),
+                lf("generic_sync_group_vif_show_sync"),
+                lf("simple_vif_sync_group_state"),
                 ""
             ),
         ],
@@ -238,62 +239,62 @@ class TestVyattaShowVrrp:
         "fakes,expected,data,intf_filter,grp_filter",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_detail"),
-                pytest.lazy_fixture("detailed_simple_state"),
+                lf("calendar_fakes"),
+                lf("generic_group_show_detail"),
+                lf("detailed_simple_state"),
                 "dp0p1s1",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "VRRP is not running on dp0p1s2",
-                pytest.lazy_fixture("detailed_simple_state"),
+                lf("detailed_simple_state"),
                 "dp0p1s2",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "No VRRP group 2 exists on dp0p1s1",
-                pytest.lazy_fixture("detailed_simple_state"),
+                lf("detailed_simple_state"),
                 "dp0p1s1",
                 "2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "VRRP is not running on dp0p1s2",
-                pytest.lazy_fixture("detailed_simple_state"),
+                lf("detailed_simple_state"),
                 "dp0p1s2",
                 "2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "dp0p1s2_vrid_42_show_detail"
                 ),
-                pytest.lazy_fixture("multiple_interfaces_and_groups_state"),
+                lf("multiple_interfaces_and_groups_state"),
                 "dp0p1s2",
                 "42"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "dp0p1s2_full_show_detail"
                 ),
-                pytest.lazy_fixture("multiple_interfaces_and_groups_state"),
+                lf("multiple_interfaces_and_groups_state"),
                 "dp0p1s2",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_detail"),
-                pytest.lazy_fixture("detailed_vif_simple_state_multiple_intf"),
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_detail"),
+                lf("detailed_vif_simple_state_multiple_intf"),
                 "dp0p1s1.10",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_detail"),
-                pytest.lazy_fixture("detailed_vif_simple_state_multiple_intf"),
+                lf("calendar_fakes"),
+                lf("generic_group_show_detail"),
+                lf("detailed_vif_simple_state_multiple_intf"),
                 "dp0p1s1",
                 ""
             ),
@@ -318,89 +319,89 @@ class TestVyattaShowVrrp:
         "fakes,expected,data,intf_filter,grp_filter",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_stats"),
-                pytest.lazy_fixture("generic_group_complete_stats_dict"),
+                lf("calendar_fakes"),
+                lf("generic_group_show_stats"),
+                lf("generic_group_complete_stats_dict"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("backup_group_show_stats"),
-                pytest.lazy_fixture("backup_group_complete_stats_dict"),
+                lf("calendar_fakes"),
+                lf("backup_group_show_stats"),
+                lf("backup_group_complete_stats_dict"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("master_and_backup_group_show_stats"),
-                pytest.lazy_fixture("intf_complete_stats_dict"),
+                lf("calendar_fakes"),
+                lf("master_and_backup_group_show_stats"),
+                lf("intf_complete_stats_dict"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("master_and_backup_group_show_stats"),
-                pytest.lazy_fixture("multi_intf_complete_stats_dict"),
+                lf("calendar_fakes"),
+                lf("master_and_backup_group_show_stats"),
+                lf("multi_intf_complete_stats_dict"),
                 "dp0p1s1",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "VRRP is not running on dp0p1s2",
-                pytest.lazy_fixture("intf_complete_stats_dict"),
+                lf("intf_complete_stats_dict"),
                 "dp0p1s2",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "No VRRP group 2 exists on dp0p1s1",
-                pytest.lazy_fixture("intf_complete_stats_dict"),
+                lf("intf_complete_stats_dict"),
                 "dp0p1s1",
                 "2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multiple_intf_show_stats"),
-                pytest.lazy_fixture("multi_intf_complete_stats_dict"),
+                lf("calendar_fakes"),
+                lf("multiple_intf_show_stats"),
+                lf("multi_intf_complete_stats_dict"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_stats"),
-                pytest.lazy_fixture("generic_group_vif_complete_stats_dict"),
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_stats"),
+                lf("generic_group_vif_complete_stats_dict"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_group_vif_and_parent_show_stats"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_group_vif_and_parent_complete_stats_dict"
                 ),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_group_vif_show_stats"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_group_vif_and_parent_complete_stats_dict"
                 ),
                 "dp0p1s1.10",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_group_show_stats"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_group_vif_and_parent_complete_stats_dict"
                 ),
                 "dp0p1s1",
@@ -427,117 +428,117 @@ class TestVyattaShowVrrp:
         "fakes,expected,file_content",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("detailed_simple_state"),
-                pytest.lazy_fixture("generic_group_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("detailed_simple_state"),
+                lf("generic_group_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("detailed_simple_rfc_state"),
-                pytest.lazy_fixture("generic_group_rfc_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("detailed_simple_rfc_state"),
+                lf("generic_group_rfc_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_simple_rfc_sync_state"
                 ),
-                pytest.lazy_fixture("generic_group_rfc_sync_keepalived_data")
+                lf("generic_group_rfc_sync_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_simple_rfc_ipao_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_group_ipao_rfc_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("detailed_start_delay_simple_state"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("detailed_start_delay_simple_state"),
+                lf(
                     "generic_group_start_delay_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("detailed_preempt_delay_simple_state"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("detailed_preempt_delay_simple_state"),
+                lf(
                     "generic_group_preempt_delay_simple_keepalived_data"
                 ),
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("detailed_v3_simple_state"),
-                pytest.lazy_fixture("generic_v3_group_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("detailed_v3_simple_state"),
+                lf("generic_v3_group_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("detailed_vif_simple_state"),
-                pytest.lazy_fixture("generic_group_vif_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("detailed_vif_simple_state"),
+                lf("generic_group_vif_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_track_intf_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_intf_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_track_intf_no_weight_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_intf_no_weight_simple" +
                     "_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_track_pathmon_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_pathmon_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_track_multiple_pathmon_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_multiple_track_pathmon_simple_" +
                     "keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_track_route_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_route_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_track_multiple_simple_state"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_group_track_multiple_simple_keepalived_data"
                 )
             ),
@@ -569,33 +570,33 @@ class TestVyattaShowVrrp:
         "fakes,expected,file_content",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_complete_stats_dict"),
-                pytest.lazy_fixture("generic_group_keepalived_stats")
+                lf("calendar_fakes"),
+                lf("generic_group_complete_stats_dict"),
+                lf("generic_group_keepalived_stats")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("backup_group_complete_stats_dict"),
-                pytest.lazy_fixture("backup_group_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("backup_group_complete_stats_dict"),
+                lf("backup_group_keepalived_stats"),
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("intf_complete_stats_dict"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("intf_complete_stats_dict"),
+                lf(
                     "master_and_backup_group_keepalived_stats"
                 ),
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multi_intf_complete_stats_dict"),
-                pytest.lazy_fixture("multiple_intf_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("multi_intf_complete_stats_dict"),
+                lf("multiple_intf_keepalived_stats"),
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_group_vif_complete_stats_dict"
                 ),
-                pytest.lazy_fixture("generic_group_vif_keepalived_stats")
+                lf("generic_group_vif_keepalived_stats")
             ),
         ],
         ids=[
@@ -614,132 +615,132 @@ class TestVyattaShowVrrp:
         "fakes,expected,file_content",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_detail"),
-                pytest.lazy_fixture("generic_group_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("generic_group_show_detail"),
+                lf("generic_group_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_show_detail"),
-                pytest.lazy_fixture("generic_group_rfc_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_show_detail"),
+                lf("generic_group_rfc_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_sync_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_sync_show_detail"),
+                lf(
                     "generic_group_rfc_sync_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_rfc_ipao_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_group_rfc_ipao_show_detail"),
+                lf(
                     "generic_group_ipao_rfc_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_intf_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_intf_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_intf_down_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_intf_down_simple_" +
                     "keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_intf_no_weight"
                     "_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_intf_no_weight_simple_"
                     "keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_pathmon"
                     "_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_pathmon_simple_"
                     "keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_backup_generic_group_track_route_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "backup_generic_group_track_route_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_v3_group_show_detail"),
-                pytest.lazy_fixture("generic_v3_group_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("generic_v3_group_show_detail"),
+                lf("generic_v3_group_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_start_delay_group_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_start_delay_group_show_detail"),
+                lf(
                     "generic_group_start_delay_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_preempt_delay_group_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_preempt_delay_group_show_detail"),
+                lf(
                     "generic_group_preempt_delay_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multi_group_sync_group_show_detailed"),
-                pytest.lazy_fixture("sync_group_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("multi_group_sync_group_show_detailed"),
+                lf("sync_group_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "detailed_generic_group_track_multiple_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_group_track_multiple_simple_keepalived_data"
                 )
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_detail"),
-                pytest.lazy_fixture("generic_group_vif_simple_keepalived_data")
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_detail"),
+                lf("generic_group_vif_simple_keepalived_data")
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_v3_rfc_group_fast_advert_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_v3_rfc_group_fast_advert_simple_keepalived_data"
                 )
             ),
@@ -770,57 +771,57 @@ class TestVyattaShowVrrp:
         "fakes,expected,file_contents,intf_filter,grp_filter",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_detail"),
-                pytest.lazy_fixture("generic_group_simple_keepalived_data"),
+                lf("calendar_fakes"),
+                lf("generic_group_show_detail"),
+                lf("generic_group_simple_keepalived_data"),
                 "dp0p1s1",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "VRRP is not running on dp0p1s2",
-                pytest.lazy_fixture("generic_group_simple_keepalived_data"),
+                lf("generic_group_simple_keepalived_data"),
                 "dp0p1s2",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "No VRRP group 2 exists on dp0p1s1",
-                pytest.lazy_fixture("generic_group_simple_keepalived_data"),
+                lf("generic_group_simple_keepalived_data"),
                 "dp0p1s1",
                 "2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
+                lf("calendar_fakes"),
                 "VRRP is not running on dp0p1s2",
-                pytest.lazy_fixture("generic_group_simple_keepalived_data"),
+                lf("generic_group_simple_keepalived_data"),
                 "dp0p1s2",
                 "2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "dp0p1s2_vrid_42_show_detail"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "multiple_group_simple_keepalived_data"
                 ),
                 "dp0p1s2",
                 "42"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_detail"),
+                lf(
                     "generic_group_vif_and_parent_simple_keepalived_data"
                 ),
                 "dp0p1s1.10",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_detail"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("generic_group_show_detail"),
+                lf(
                     "generic_group_vif_and_parent_simple_keepalived_data"
                 ),
                 "dp0p1s1",
@@ -847,47 +848,47 @@ class TestVyattaShowVrrp:
         "fakes,expected,file_content,grp_filter",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_sync_group_show_sync"),
-                pytest.lazy_fixture("sync_group_simple_keepalived_data"),
+                lf("calendar_fakes"),
+                lf("generic_sync_group_show_sync"),
+                lf("sync_group_simple_keepalived_data"),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("no_sync_group_show_sync"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("no_sync_group_show_sync"),
+                lf(
                     "generic_group_preempt_delay_simple_keepalived_data"
                 ),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multiple_sync_group_show_sync"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("multiple_sync_group_show_sync"),
+                lf(
                     "multiple_sync_groups_simple_keepalived_data"
                 ),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("sync_group_show_sync_group_filter"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("sync_group_show_sync_group_filter"),
+                lf(
                     "multiple_sync_groups_simple_keepalived_data"
                 ),
                 "TESTV2"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_sync_group_vif_show_sync"),
-                pytest.lazy_fixture("sync_group_simple_vif_keepalived_data"),
+                lf("calendar_fakes"),
+                lf("generic_sync_group_vif_show_sync"),
+                lf("sync_group_simple_vif_keepalived_data"),
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf(
                     "generic_sync_group_vif_and_nonvif_show_sync"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "sync_group_simple_vif_and_nonvif_keepalived_data"
                 ),
                 ""
@@ -914,53 +915,53 @@ class TestVyattaShowVrrp:
         "fakes,expected,file_contents,intf_filter,grp_filter",
         [
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_show_stats"),
-                pytest.lazy_fixture("generic_group_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("generic_group_show_stats"),
+                lf("generic_group_keepalived_stats"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("backup_group_show_stats"),
-                pytest.lazy_fixture("backup_group_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("backup_group_show_stats"),
+                lf("backup_group_keepalived_stats"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("master_and_backup_group_show_stats"),
-                pytest.lazy_fixture(
+                lf("calendar_fakes"),
+                lf("master_and_backup_group_show_stats"),
+                lf(
                     "master_and_backup_group_keepalived_stats"
                 ),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("multiple_intf_show_stats"),
-                pytest.lazy_fixture("multiple_intf_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("multiple_intf_show_stats"),
+                lf("multiple_intf_keepalived_stats"),
                 "",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("master_and_backup_group_show_stats"),
-                pytest.lazy_fixture("multiple_intf_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("master_and_backup_group_show_stats"),
+                lf("multiple_intf_keepalived_stats"),
                 "dp0p1s1",
                 ""
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("filtered_interface_and_group_show_stats"),
-                pytest.lazy_fixture("multiple_intf_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("filtered_interface_and_group_show_stats"),
+                lf("multiple_intf_keepalived_stats"),
                 "dp0p1s1",
                 "42"
             ),
             (
-                pytest.lazy_fixture("calendar_fakes"),
-                pytest.lazy_fixture("generic_group_vif_show_stats"),
-                pytest.lazy_fixture("generic_group_vif_keepalived_stats"),
+                lf("calendar_fakes"),
+                lf("generic_group_vif_show_stats"),
+                lf("generic_group_vif_keepalived_stats"),
                 "",
                 ""
             ),

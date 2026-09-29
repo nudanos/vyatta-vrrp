@@ -4,6 +4,7 @@
 
 import pytest
 
+from pytest_lazy_fixtures import lf
 import vyatta.vrrp_vci.keepalived.util as util
 
 
@@ -12,10 +13,10 @@ class TestKeepalivedVrrpGroupControl:
     @pytest.mark.parametrize(
         "expected,fakes",
         [
-            (pytest.lazy_fixture("instance_state"),
-             pytest.lazy_fixture("mock_pydbus")),
-            (pytest.lazy_fixture("instance_state_rfc"),
-             pytest.lazy_fixture("mock_pydbus_rfc"))
+            (lf("instance_state"),
+             lf("mock_pydbus")),
+            (lf("instance_state_rfc"),
+             lf("mock_pydbus_rfc"))
         ],
         ids=["Non rfc", "rfc"])
     def test_get_unit_state(self, expected, fakes):

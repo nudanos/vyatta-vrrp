@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from pytest_lazy_fixtures import lf
 import vyatta.vrrp_vci.keepalived.util as util
 
 
@@ -20,9 +21,9 @@ class TestKeepalivedConfigFile:
     @pytest.mark.parametrize(
         "keepalived,expected_path",
         [
-            (pytest.lazy_fixture("keepalived_config"),
+            (lf("keepalived_config"),
              "/etc/keepalived/keepalived.conf"),
-            (pytest.lazy_fixture("non_default_keepalived_config"),
+            (lf("non_default_keepalived_config"),
              "/test/file/path.conf"),
         ],
         ids=[
@@ -40,73 +41,73 @@ class TestKeepalivedConfigFile:
     @pytest.mark.parametrize(
         "config_lines,expected_yang,keepalived",
         [
-            ([[]], {}, pytest.lazy_fixture("keepalived_config")),
+            ([[]], {}, lf("keepalived_config")),
             (
-                pytest.lazy_fixture("complex_keepalived_config_block"),
-                pytest.lazy_fixture("max_config_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("complex_keepalived_config_block"),
+                lf("max_config_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "pathmon_track_group_keepalived_config_block"
                 ),
-                pytest.lazy_fixture("pathmon_track_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("pathmon_track_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "route_to_track_group_keepalived_config_block"
                 ),
-                pytest.lazy_fixture("route_to_track_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("route_to_track_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("simple_keepalived_config_block"),
-                pytest.lazy_fixture("generic_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("simple_keepalived_config_block"),
+                lf("generic_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "switch_rfc_group_keepalived_config_block"
                 ),
-                pytest.lazy_fixture("generic_rfc_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("generic_rfc_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "dataplane_vif_group_keepalived_config_block"
                 ),
-                pytest.lazy_fixture("modified_vif_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("modified_vif_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("syncgroup_group_keepalived_config_block"),
-                pytest.lazy_fixture("sync_group1"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("syncgroup_group_keepalived_config_block"),
+                lf("sync_group1"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "v3_fast_advert_group_keepalived_config_block"
                 ),
-                pytest.lazy_fixture("generic_v3_fast_advert_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("generic_v3_fast_advert_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "v3_fast_advert_group_seconds_keepalived_config_block"
                 ),
-                pytest.lazy_fixture("generic_v3_fast_advert_seconds_group"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("generic_v3_fast_advert_seconds_group"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture(
+                lf(
                     "v3_fast_advert_group_between_seconds_keepalived_"
                     "config_block"
                 ),
-                pytest.lazy_fixture(
+                lf(
                     "generic_v3_fast_advert_between_seconds_group"
                 ),
-                pytest.lazy_fixture("keepalived_config")
+                lf("keepalived_config")
             ),
         ],
         ids=[
@@ -131,57 +132,57 @@ class TestKeepalivedConfigFile:
         [
             (
                 "", {},
-                pytest.lazy_fixture("keepalived_config")
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("simple_keepalived_config"),
-                pytest.lazy_fixture("simple_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("simple_keepalived_config"),
+                lf("simple_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("generic_v3_keepalived_config"),
-                pytest.lazy_fixture("generic_v3_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("generic_v3_keepalived_config"),
+                lf("generic_v3_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("syncgroup_keepalived_config"),
-                pytest.lazy_fixture("syncgroup_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("syncgroup_keepalived_config"),
+                lf("syncgroup_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("multiple_syncgroup_keepalived_config"),
-                pytest.lazy_fixture("multiple_syncgroup_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("multiple_syncgroup_keepalived_config"),
+                lf("multiple_syncgroup_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("complex_keepalived_config"),
-                pytest.lazy_fixture("complex_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("complex_keepalived_config"),
+                lf("complex_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("bonding_keepalived_config"),
-                pytest.lazy_fixture("bonding_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("bonding_keepalived_config"),
+                lf("bonding_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("bonding_complex_keepalived_config"),
-                pytest.lazy_fixture("bonding_complex_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("bonding_complex_keepalived_config"),
+                lf("bonding_complex_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("parent_and_vif_keepalived_config"),
-                pytest.lazy_fixture("parent_and_vif_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("parent_and_vif_keepalived_config"),
+                lf("parent_and_vif_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("switch_keepalived_config"),
-                pytest.lazy_fixture("switch_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("switch_keepalived_config"),
+                lf("switch_config"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("switch_complex_keepalived_config"),
-                pytest.lazy_fixture("switch_complex_config"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("switch_complex_keepalived_config"),
+                lf("switch_complex_config"),
+                lf("keepalived_config")
             ),
         ],
         ids=[
@@ -219,37 +220,37 @@ class TestKeepalivedConfigFile:
                 None,
                 {},
                 [],
-                pytest.lazy_fixture("keepalived_config")
+                lf("keepalived_config")
             ),
             (
                 None,
-                pytest.lazy_fixture("top_level_dictionary"),
+                lf("top_level_dictionary"),
                 [],
-                pytest.lazy_fixture("keepalived_config")
+                lf("keepalived_config")
             ),
             (
                 None,
-                pytest.lazy_fixture("no_vrrp_config"),
+                lf("no_vrrp_config"),
                 [],
-                pytest.lazy_fixture("keepalived_config")
+                lf("keepalived_config")
             ),
             (
                 None,
-                pytest.lazy_fixture("disabled_vrrp_config"),
+                lf("disabled_vrrp_config"),
                 [],
-                pytest.lazy_fixture("keepalived_config")
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("mock_pydbus"),
-                pytest.lazy_fixture("simple_config"),
-                pytest.lazy_fixture("simple_vrrp_group_object"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("mock_pydbus"),
+                lf("simple_config"),
+                lf("simple_vrrp_group_object"),
+                lf("keepalived_config")
             ),
             (
-                pytest.lazy_fixture("mock_pydbus"),
-                pytest.lazy_fixture("complex_config"),
-                pytest.lazy_fixture("fuller_vrrp_group_object"),
-                pytest.lazy_fixture("keepalived_config")
+                lf("mock_pydbus"),
+                lf("complex_config"),
+                lf("fuller_vrrp_group_object"),
+                lf("keepalived_config")
             ),
         ],
         ids=[

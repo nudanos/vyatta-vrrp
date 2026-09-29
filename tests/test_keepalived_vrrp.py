@@ -4,6 +4,7 @@
 
 import pytest
 
+from pytest_lazy_fixtures import lf
 from vyatta.vrrp_vci.keepalived.vrrp import VrrpGroup
 
 
@@ -21,53 +22,53 @@ class TestKeepalivedVrrpGroup:
 
     @pytest.mark.parametrize(
         "expected,yang,rfc_num,intf",
-        [(pytest.lazy_fixture("dataplane_group_keepalived_config"),
-          pytest.lazy_fixture("generic_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("max_group_keepalived_config"),
-          pytest.lazy_fixture("max_config_group"), 1, "dp0p1s1"),
-         (pytest.lazy_fixture("generic_v3_group_keepalived_config"),
-          pytest.lazy_fixture("generic_v3_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("generic_ipv6_group_keepalived_config"),
-          pytest.lazy_fixture("generic_ipv6_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("pathmon_track_group_keepalived_config"),
-          pytest.lazy_fixture("pathmon_track_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("legacy_track_group_keepalived_config"),
-          pytest.lazy_fixture("legacy_track_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture(
+        [(lf("dataplane_group_keepalived_config"),
+          lf("generic_group"), -1, "dp0p1s1"),
+         (lf("max_group_keepalived_config"),
+          lf("max_config_group"), 1, "dp0p1s1"),
+         (lf("generic_v3_group_keepalived_config"),
+          lf("generic_v3_group"), -1, "dp0p1s1"),
+         (lf("generic_ipv6_group_keepalived_config"),
+          lf("generic_ipv6_group"), -1, "dp0p1s1"),
+         (lf("pathmon_track_group_keepalived_config"),
+          lf("pathmon_track_group"), -1, "dp0p1s1"),
+         (lf("legacy_track_group_keepalived_config"),
+          lf("legacy_track_group"), -1, "dp0p1s1"),
+         (lf(
              "legacy_and_enhanced_track_group_keepalived_config"),
-          pytest.lazy_fixture("legacy_and_enhanced_track_group"), -1,
+          lf("legacy_and_enhanced_track_group"), -1,
           "dp0p1s1"),
-         (pytest.lazy_fixture(
+         (lf(
              "legacy_and_pathmon_enhanced_track_group_keepalived_config"),
-          pytest.lazy_fixture("legacy_and_pathmon_enhanced_track_group"), -1,
+          lf("legacy_and_pathmon_enhanced_track_group"), -1,
           "dp0p1s1"),
-         (pytest.lazy_fixture("accept_v3_group_keepalived_config"),
-          pytest.lazy_fixture("accept_v3_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("nopreempt_v3_group_keepalived_config"),
-          pytest.lazy_fixture("nopreempt_v3_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("ah_auth_v3_group_keepalived_config"),
-          pytest.lazy_fixture("ah_auth_v3_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("runtransition_v3_group_keepalived_config"),
-          pytest.lazy_fixture("runtransition_v3_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture("switch_rfc_group_keepalived_config"),
-          pytest.lazy_fixture("generic_rfc_group"), 1, "sw0.10"),
-         (pytest.lazy_fixture(
+         (lf("accept_v3_group_keepalived_config"),
+          lf("accept_v3_group"), -1, "dp0p1s1"),
+         (lf("nopreempt_v3_group_keepalived_config"),
+          lf("nopreempt_v3_group"), -1, "dp0p1s1"),
+         (lf("ah_auth_v3_group_keepalived_config"),
+          lf("ah_auth_v3_group"), -1, "dp0p1s1"),
+         (lf("runtransition_v3_group_keepalived_config"),
+          lf("runtransition_v3_group"), -1, "dp0p1s1"),
+         (lf("switch_rfc_group_keepalived_config"),
+          lf("generic_rfc_group"), 1, "sw0.10"),
+         (lf(
              "generic_v3_fast_advert_group_keepalived_config"),
-          pytest.lazy_fixture("generic_v3_fast_advert_group"), -1, "dp0p1s1"),
-         (pytest.lazy_fixture(
+          lf("generic_v3_fast_advert_group"), -1, "dp0p1s1"),
+         (lf(
              "generic_v3_fast_advert_group_seconds_keepalived_config"),
-          pytest.lazy_fixture("generic_v3_fast_advert_seconds_group"), -1,
+          lf("generic_v3_fast_advert_seconds_group"), -1,
           "dp0p1s1"),
-         (pytest.lazy_fixture(
+         (lf(
              "generic_v3_fast_advert_group_between_seconds_keepalived_config"),
-          pytest.lazy_fixture("generic_v3_fast_advert_between_seconds_group"),
+          lf("generic_v3_fast_advert_between_seconds_group"),
           -1, "dp0p1s1"),
-         (pytest.lazy_fixture("switch_max_group_keepalived_config"),
-          pytest.lazy_fixture("switch_max_config_group"), 1, "sw0.10"),
-         (pytest.lazy_fixture("bonding_max_group_keepalived_config"),
-          pytest.lazy_fixture("bonding_max_config_group"), 1, "dp0bond0"),
-         (pytest.lazy_fixture("route_to_track_group_keepalived_config"),
-          pytest.lazy_fixture("route_to_track_group"), 1, "dp0p1s1")],
+         (lf("switch_max_group_keepalived_config"),
+          lf("switch_max_config_group"), 1, "sw0.10"),
+         (lf("bonding_max_group_keepalived_config"),
+          lf("bonding_max_config_group"), 1, "dp0bond0"),
+         (lf("route_to_track_group_keepalived_config"),
+          lf("route_to_track_group"), 1, "dp0p1s1")],
         ids=["Simple", "Complex", "VRRPv3", "IPv6 group",
              "Pathmon tracking",
              "Legacy tracking", "Legacy & Enhanced Tracking",

@@ -2,6 +2,7 @@ import copy
 
 import pytest
 
+from pytest_lazy_fixtures import lf
 import vyatta.vrrp_vci.keepalived.util as util
 
 
@@ -53,9 +54,9 @@ class TestKeepalivedUtils:
     @pytest.mark.parametrize(
         "expected,address,fakes",
         [
-            (True, "127.0.0.1", pytest.lazy_fixture("socket_fakes")),
-            (True, "::1", pytest.lazy_fixture("socket_fakes")),
-            (False, "10.1.1.1", pytest.lazy_fixture("socket_fakes")),
+            (True, "127.0.0.1", lf("socket_fakes")),
+            (True, "::1", lf("socket_fakes")),
+            (False, "10.1.1.1", lf("socket_fakes")),
         ],
         ids=[
             "ipv4", "ipv6", "No configured"
@@ -69,11 +70,11 @@ class TestKeepalivedUtils:
         [
             (
                 False,
-                pytest.lazy_fixture("simple_config")
+                lf("simple_config")
             ),
             (
                 True,
-                pytest.lazy_fixture("complex_config")
+                lf("complex_config")
             ),
         ],
         ids=[
@@ -88,9 +89,9 @@ class TestKeepalivedUtils:
         "expected,hypervisor",
         [
             (False,
-             pytest.lazy_fixture("mock_show_version_rpc_no_hypervisor")),
-            (False, pytest.lazy_fixture("mock_show_version_rpc_kvm")),
-            (True, pytest.lazy_fixture("mock_show_version_rpc_vmware")),
+             lf("mock_show_version_rpc_no_hypervisor")),
+            (False, lf("mock_show_version_rpc_kvm")),
+            (True, lf("mock_show_version_rpc_vmware")),
         ],
         ids=[
             "Baremetal", "KVM", "VMWare"
@@ -108,24 +109,24 @@ class TestKeepalivedUtils:
     @pytest.mark.parametrize(
         "test_value,expected_value",
         [
-            (pytest.lazy_fixture("no_vrrp_config"),
-             pytest.lazy_fixture("top_level_dictionary")),
-            (pytest.lazy_fixture("simple_multi_intf_same_type_config"),
-             pytest.lazy_fixture("simple_config")),
-            (pytest.lazy_fixture("simple_multi_intf_differing_type_config"),
-             pytest.lazy_fixture(
+            (lf("no_vrrp_config"),
+             lf("top_level_dictionary")),
+            (lf("simple_multi_intf_same_type_config"),
+             lf("simple_config")),
+            (lf("simple_multi_intf_differing_type_config"),
+             lf(
                  "simple_multi_intf_differing_type_config_sanitized")
              ),
-            (pytest.lazy_fixture("simple_dataplane_vif_config"),
-             pytest.lazy_fixture("simple_config")),
-            (pytest.lazy_fixture("simple_dataplane_vif_with_vrrp_config"),
-             pytest.lazy_fixture("simple_dataplane_vif_sanitized_config")),
-            (pytest.lazy_fixture("simple_multi_intf_type_vif_config"),
-             pytest.lazy_fixture(
+            (lf("simple_dataplane_vif_config"),
+             lf("simple_config")),
+            (lf("simple_dataplane_vif_with_vrrp_config"),
+             lf("simple_dataplane_vif_sanitized_config")),
+            (lf("simple_multi_intf_type_vif_config"),
+             lf(
                  "simple_multi_intf_type_vif_sanitized_config")
              ),
-            (pytest.lazy_fixture("switch_config_not_being_applied"),
-             pytest.lazy_fixture(
+            (lf("switch_config_not_being_applied"),
+             lf(
                  "expected_switch_config_not_being_applied")
              ),
         ],
@@ -148,22 +149,22 @@ class TestKeepalivedUtils:
         "file_contents,search_string,expected",
         [
             (
-                pytest.lazy_fixture("autogeneration_string"),
+                lf("autogeneration_string"),
                 "global_defs",
                 [6]
             ),
             (
-                pytest.lazy_fixture("autogeneration_string"),
+                lf("autogeneration_string"),
                 "vrrp_instance",
                 []
             ),
             (
-                pytest.lazy_fixture("simple_keepalived_config"),
+                lf("simple_keepalived_config"),
                 "vrrp_instance",
                 [14]
             ),
             (
-                pytest.lazy_fixture("multiple_group_keepalived_config"),
+                lf("multiple_group_keepalived_config"),
                 "vrrp_instance",
                 [14, 27]
             ),
@@ -183,24 +184,24 @@ class TestKeepalivedUtils:
         "config_string,start_index,expected_block",
         [
             (
-                pytest.lazy_fixture("autogeneration_string"),
+                lf("autogeneration_string"),
                 [6],
-                pytest.lazy_fixture("autogeneration_config_block"),
+                lf("autogeneration_config_block"),
             ),
             (
-                pytest.lazy_fixture("autogeneration_string"),
+                lf("autogeneration_string"),
                 [],
                 [],
             ),
             (
-                pytest.lazy_fixture("simple_keepalived_config"),
+                lf("simple_keepalived_config"),
                 [14],
-                pytest.lazy_fixture("simple_keepalived_config_block"),
+                lf("simple_keepalived_config_block"),
             ),
             (
-                pytest.lazy_fixture("multiple_group_keepalived_config"),
+                lf("multiple_group_keepalived_config"),
                 [14, 27],
-                pytest.lazy_fixture("multiple_group_keepalived_config_block"),
+                lf("multiple_group_keepalived_config_block"),
             ),
         ],
         ids=[
@@ -218,17 +219,17 @@ class TestKeepalivedUtils:
         "config_list,search_string,expected",
         [
             (
-                pytest.lazy_fixture("autogeneration_config_block"),
+                lf("autogeneration_config_block"),
                 "snmp_socket",
                 {"Type": str, "Value": "tcp:localhost:705:1"},
             ),
             (
-                pytest.lazy_fixture("autogeneration_config_block"),
+                lf("autogeneration_config_block"),
                 "enable_dbus",
                 {"Type": list, "Value": [None]},
             ),
             (
-                pytest.lazy_fixture("multiple_group_keepalived_config_block"),
+                lf("multiple_group_keepalived_config_block"),
                 "state",
                 {"Type": str, "Value": "BACKUP"},
             ),
@@ -253,12 +254,12 @@ class TestKeepalivedUtils:
         "config_list,search_string,expected",
         [
             (
-                pytest.lazy_fixture("autogeneration_config_block"),
+                lf("autogeneration_config_block"),
                 "garp",
                 {"Name": "MISSING", "Value": "NOTFOUND"},
             ),
             (
-                pytest.lazy_fixture("complex_keepalived_config_block"),
+                lf("complex_keepalived_config_block"),
                 "preempt",
                 {"Name": "MISSING", "Value": "NOTFOUND"},
             ),
@@ -278,17 +279,17 @@ class TestKeepalivedUtils:
         [
             (
                 "dp0p1s1",
-                pytest.lazy_fixture("search_empty_dataplane_list"),
+                lf("search_empty_dataplane_list"),
                 0
             ),
             (
                 "dp0p1s1",
-                pytest.lazy_fixture("search_dataplane_list"),
+                lf("search_dataplane_list"),
                 0
             ),
             (
                 "dp0p1s2",
-                pytest.lazy_fixture("search_dataplane_list"),
+                lf("search_dataplane_list"),
                 1
             ),
         ],
@@ -310,25 +311,25 @@ class TestKeepalivedUtils:
             (
                 "dp0p1s1",
                 "10",
-                pytest.lazy_fixture("search_empty_dataplane_list"),
+                lf("search_empty_dataplane_list"),
                 0, 0
             ),
             (
                 "dp0p1s1",
                 "10",
-                pytest.lazy_fixture("search_dataplane_list"),
+                lf("search_dataplane_list"),
                 0, 0
             ),
             (
                 "dp0p1s1",
                 "20",
-                pytest.lazy_fixture("search_vif_dataplane_list"),
+                lf("search_vif_dataplane_list"),
                 0, 1
             ),
             (
                 "dp0p1s1",
                 "10",
-                pytest.lazy_fixture(
+                lf(
                     "search_vif_dataplane_list_multiple_vrrp_groups"
                 ),
                 0, 0
@@ -354,17 +355,17 @@ class TestKeepalivedUtils:
         [
             (
                 "dp0bond1",
-                pytest.lazy_fixture("bonding_yang_name"),
+                lf("bonding_yang_name"),
                 "bonding"
             ),
             (
                 "sw0",
-                pytest.lazy_fixture("switch_yang_name"),
+                lf("switch_yang_name"),
                 "switch"
             ),
             (
                 "dp0p1s1",
-                pytest.lazy_fixture("dataplane_yang_name"),
+                lf("dataplane_yang_name"),
                 "dataplane"
             ),
         ],

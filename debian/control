@@ -13,7 +13,7 @@ Build-Depends: debhelper-compat (= 13),
  git,
  python3-pytest,
  python3-pytest-cov,
- python3-pytest-lazy-fixture,
+ python3-pytest-lazy-fixtures,
  python3-pydbus
 Standards-Version: 4.7.2
 Rules-Requires-Root: no
