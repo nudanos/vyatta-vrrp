@@ -166,7 +166,7 @@ class TestKeepalivedUtils:
             (
                 lf("multiple_group_keepalived_config"),
                 "vrrp_instance",
-                [14, 27]
+                [14, 26]
             ),
         ],
         ids=[
@@ -200,7 +200,7 @@ class TestKeepalivedUtils:
             ),
             (
                 lf("multiple_group_keepalived_config"),
-                [14, 27],
+                [14, 26],
                 lf("multiple_group_keepalived_config_block"),
             ),
         ],

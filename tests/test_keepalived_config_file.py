@@ -266,6 +266,36 @@ class TestKeepalivedConfigFile:
         keepalived.update(yang_config)
         assert str(keepalived.vrrp_instances) == str(expected)
 
+    def test_start_delay_is_a_global_startup_delay(
+            self, mock_pydbus, simple_config,
+            tmp_file_keepalived_config_no_write):
+        """keepalived 2.4 has no per-instance start_delay; the delay becomes
+        global_defs vrrp_startup_delay (all groups share one delay)."""
+        keepalived = tmp_file_keepalived_config_no_write
+        intfs = simple_config["vyatta-interfaces-v1:interfaces"]
+        intfs["vyatta-interfaces-dataplane-v1:dataplane"][0][
+            "vyatta-vrrp-v1:vrrp"]["start-delay"] = 30
+        keepalived.update(simple_config)
+        keepalived.write_config()
+        out = keepalived.read_config()
+        assert "vrrp_startup_delay 30" in out
+        assert "start_delay" not in out.replace("vrrp_startup_delay", "")
+
+    def test_global_startup_delay_reads_back_as_start_delay(
+            self, mock_pydbus, simple_config,
+            tmp_file_keepalived_config_no_write):
+        keepalived = tmp_file_keepalived_config_no_write
+        intfs = simple_config["vyatta-interfaces-v1:interfaces"]
+        intfs["vyatta-interfaces-dataplane-v1:dataplane"][0][
+            "vyatta-vrrp-v1:vrrp"]["start-delay"] = 30
+        keepalived.update(simple_config)
+        keepalived.write_config()
+        result = keepalived.convert_to_vci_format_dict(
+            keepalived.read_config())
+        vrrp = result["vyatta-interfaces-v1:interfaces"][
+            "vyatta-interfaces-dataplane-v1:dataplane"][0]["vyatta-vrrp-v1:vrrp"]
+        assert vrrp["start-delay"] == 30
+
     def test_update_config_error_when_vif_under_intf(
             self, keepalived_config, simple_dataplane_vif_config):
         with pytest.raises(ValueError):

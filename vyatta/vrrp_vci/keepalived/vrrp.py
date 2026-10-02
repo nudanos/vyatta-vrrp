@@ -86,7 +86,6 @@ vrrp_instance {instance} {{
     interface {intf}
     virtual_router_id {tagnode}
     version {version}
-    start_delay {delay}
     priority {priority}
     advert_int {adv}
     virtual_ipaddress {{
@@ -298,6 +297,13 @@ vrrp_instance {instance} {{
                 track_string += f"   {util.YANG_TRACK_WEIGHT}  {value:+d}"
             self._template += track_string
         self._template += "\n    }}"  # Close route brace
+
+    @property
+    def start_delay(self) -> int:
+        """Start delay configured for the group's interface. keepalived 2.4
+        has no per-instance start_delay; KeepalivedConfig renders it as the
+        global vrrp_startup_delay."""
+        return int(self._group_config[util.CONFIG_DELAY])
 
     def __repr__(self) -> str:
         return self._template.format(

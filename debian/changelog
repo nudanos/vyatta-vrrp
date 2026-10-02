@@ -1,3 +1,11 @@
+vyatta-vrrp (3.10) trixie; urgency=medium
+
+  * keepalived 2.4 has no per-instance start_delay: render the interface
+    start-delay as the global vrrp_startup_delay (the largest configured
+    delay; all groups share it) and read it back from there.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Fri, 02 Oct 2026 08:40:22 -0700
+
 vyatta-vrrp (3.9) trixie; urgency=medium
 
   * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.

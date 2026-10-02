@@ -93,7 +93,6 @@ class KeepalivedConfig(ConfigFile):
             interface dp0p1s1
             virtual_router_id 1
             version 2
-            start_delay 0
             priority 100
             advert_int 1
             virtual_ipaddress {
@@ -283,6 +282,15 @@ global_defs {
         file an error is thrown.
         """
         keepalived_config: str = self.config_string
+        # keepalived 2.4 dropped the per-instance start_delay: the largest
+        # configured delay becomes the global vrrp_startup_delay.
+        startup_delay: int = max(
+            (g.start_delay for g in self.vrrp_instances), default=0)
+        if startup_delay:
+            keepalived_config = keepalived_config.replace(
+                "dynamic_interfaces allow_if_changes",
+                "dynamic_interfaces allow_if_changes\n"
+                f"        vrrp_startup_delay {startup_delay}")
         sync_group: str
         for sync_group in self._sync_instances:
             keepalived_config += f"""
@@ -329,6 +337,13 @@ vrrp_sync_group {sync_group} {{
             config_lines, util.CONFIG_VRRP_INSTANCE)
         if vrrp_group_start_indexes == []:
             return {}
+        # The start delay is global (vrrp_startup_delay) since keepalived 2.4
+        global_start_delay: int = 0
+        line: str
+        for line in config_lines[:vrrp_group_start_indexes[0]]:
+            words: List[str] = line.split()
+            if len(words) == 2 and words[0] == "vrrp_startup_delay":
+                global_start_delay = int(words[1])
 
         sync_group_start_indexes: List[int] = util.get_config_indexes(
             config_lines, util.CONFIG_VRRP_SYNC_GROUP)
@@ -417,7 +432,7 @@ vrrp_sync_group {sync_group} {{
                         group, util.CONFIG_START_DELAY
                     )
             except ValueError:
-                new_group_start_delay = 0
+                new_group_start_delay = global_start_delay
 
             current_start_delay: int = \
                 vrrp_dict[util.YANG_START_DELAY]

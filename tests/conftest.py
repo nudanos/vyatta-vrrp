@@ -4355,7 +4355,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 1
     virtual_ipaddress {
@@ -4373,7 +4372,6 @@ vrrp_instance vyatta-dp0p1s2-1 {
     interface dp0p1s2
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 1
     virtual_ipaddress {
@@ -4391,7 +4389,6 @@ vrrp_instance vyatta-dp0p1s3-1 {
     interface dp0p1s3
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 1
     virtual_ipaddress {
@@ -4409,7 +4406,6 @@ vrrp_instance vyatta-dp0p1s4-1 {
     interface dp0p1s4
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 1
     virtual_ipaddress {
@@ -4482,7 +4478,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 1
     virtual_ipaddress {
@@ -4500,7 +4495,6 @@ vrrp_instance vyatta-sw0.10-1 {
     interface sw0.10
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 1
     virtual_ipaddress {
@@ -4519,7 +4513,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4542,7 +4535,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4564,7 +4556,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4588,7 +4579,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4606,7 +4596,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4626,7 +4615,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 0.5
     virtual_ipaddress {
@@ -4646,7 +4634,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4666,7 +4653,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2.5
     virtual_ipaddress {
@@ -4686,7 +4672,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4704,7 +4689,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4725,7 +4709,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4744,7 +4727,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 2
     virtual_ipaddress {
@@ -4766,7 +4748,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 2
     virtual_ipaddress {
@@ -4803,7 +4784,6 @@ vrrp_instance vyatta-dp0bond0-1 {
     interface dp0bond0
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 2
     virtual_ipaddress {
@@ -4840,7 +4820,6 @@ vrrp_instance vyatta-sw0.10-1 {
     interface sw0.10
     virtual_router_id 1
     version 2
-    start_delay 0
     priority 200
     advert_int 2
     virtual_ipaddress {
@@ -4877,7 +4856,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 1
     virtual_ipaddress {
@@ -4899,7 +4877,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 1
     virtual_ipaddress {
@@ -4922,7 +4899,6 @@ vrrp_instance vyatta-dp0p1s1-1 {
     interface dp0p1s1
     virtual_router_id 1
     version 3
-    start_delay 0
     priority 100
     advert_int 0.5
     virtual_ipaddress {
@@ -5910,7 +5886,6 @@ vrrp_instance vyatta-dp0p1s1.10-2 {
     interface dp0p1s1.10
     virtual_router_id 2
     version 2
-    start_delay 0
     priority 100
     advert_int 1
     virtual_ipaddress {
